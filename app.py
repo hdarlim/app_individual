@@ -1,4 +1,4 @@
-from classes import ConexaoBD, RepositorioBase, InterfaceTerminal
+from classes import InterfaceTerminal
 
 # Execução do Programa
 if __name__ == "__main__":
