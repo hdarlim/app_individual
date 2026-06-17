@@ -1,0 +1,36 @@
+# Diretórios Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Ambientes virtuais
+venv/
+env/
+ENV/
+.venv
+
+# Banco de dados
+*.db
+*.sqlite
+*.sqlite3
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Distribuição / empacotamento
+build/
+dist/
+*.egg-info/
+.eggs/
