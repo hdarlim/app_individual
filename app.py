@@ -1,4 +1,3 @@
-import sqlite3
 from classes import ConexaoBD, RepositorioBase, InterfaceTerminal
 
 # Execução do Programa
