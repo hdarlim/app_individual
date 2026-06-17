@@ -1,3 +1,5 @@
+import sqlite3
+
 class ConexaoBD:
     """Classe responsável por gerenciar o banco de dados e as 3 tabelas relacionais."""
     def __init__(self, nome_banco="biblioteca.db"):
@@ -120,16 +122,38 @@ class InterfaceTerminal:
             opcao = input("Escolha uma ação: ")
 
             if opcao == '1':
-                valores = [input(f"Digite o valor para '{col}': ") for col in repo.colunas]
-                repo.criar(valores)
+                valores = []
+                for col in repo.colunas:
+                    valor = input(f"Digite o valor para '{col}': ")
+                    # Converte para inteiro se for id de Autor ou Categoria
+                    if col in ['autor_id', 'categoria_id']:
+                        try:
+                            valor = int(valor)
+                        except ValueError:
+                            print(f"[Erro] {col} deve ser um número inteiro!")
+                            continue
+                    valores.append(valor)
+                if len(valores) == len(repo.colunas):  # Verifica se todos foram inseridos com sucesso
+                    repo.criar(valores)
             
             elif opcao == '2':
                 repo.ler()
             
             elif opcao == '3':
                 id_reg = self.obter_inteiro(f"Digite o ID do '{nome_tabela}' a ser editado: ")
-                valores = [input(f"Digite o novo valor para '{col}': ") for col in repo.colunas]
-                repo.atualizar(id_reg, valores)
+                valores = []
+                for col in repo.colunas:
+                    valor = input(f"Digite o novo valor para '{col}': ")
+                    # Converte para inteiro se for id de Autor ou Categoria
+                    if col in ['autor_id', 'categoria_id']:
+                        try:
+                            valor = int(valor)
+                        except ValueError:
+                            print(f"[Erro] {col} deve ser um número inteiro!")
+                            continue
+                    valores.append(valor)
+                if len(valores) == len(repo.colunas):  # Verifica se todos foram inseridos com sucesso
+                    repo.atualizar(id_reg, valores)
             
             elif opcao == '4':
                 id_reg = self.obter_inteiro(f"Digite o ID do '{nome_tabela}' a ser excluído: ")
