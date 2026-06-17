@@ -2,7 +2,6 @@
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat-square&logo=python)
 ![SQLite](https://img.shields.io/badge/SQLite-Database-lightblue?style=flat-square&logo=sqlite)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 Um gerenciador de biblioteca em Python com banco de dados SQLite, permitindo gerenciar autores, categorias e livros através de uma interface de terminal interativa.
 
